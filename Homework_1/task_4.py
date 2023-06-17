@@ -21,5 +21,5 @@ while attempts != 0:
         print("\U0001F44F Great!!! \U0001F44F \U0001F609")
         break
 
-if attempts == 0:
+else:
     print("\n\U00002620 \U0001F136\U0001F130\U0001F13C\U0001F134   \U0001F13E\U0001F145\U0001F134\U0001F141 \U00002620")
