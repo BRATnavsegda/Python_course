@@ -6,9 +6,10 @@ import math
 
 def get_fraction_numbers(fraction):
     nums = fraction.split('/')
-    for i in range(nums.__len__()):
+    for i in range(len(nums)):
         nums[i] = int(nums[i])
     return nums
+    # return map(int, fraction.split('/'))
 
 
 def addition(na, da, nb, db):
@@ -37,7 +38,7 @@ def multiplication(na, da, nb, db):
     result = [na * nb, db * da]
     g3 = math.gcd(result[0], result[1])
     if g3 > 1:
-        for i in range(result.__len__()):
+        for i in range(len(result)):
             result[i] = int(result[i] / g3)
 
     return result
@@ -46,7 +47,7 @@ def multiplication(na, da, nb, db):
 def rounding(lst):
     g1 = math.gcd(lst[0], lst[1])
     if g1 > 1:
-        for i in range(lst.__len__()):
+        for i in range(len(lst)):
             lst[i] = int(lst[i] / g1)
     return lst
 
