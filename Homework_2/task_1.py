@@ -9,31 +9,36 @@
 # При превышении суммы в 5 млн, вычитать налог на богатство 10% перед каждой операцией, даже ошибочной
 # Любое действие выводит сумму денег
 
-def cashup():
-    global cash
+def adding(cash):
+
     cash_up = int(input("Укажите вносимую сумму, кратную 50\n"))
     if cash_up % 50 == 0:
         cash += cash_up
+        return cash
     else:
-        cashup()
+        adding(cash)
 
 
-def cashout():
-    global cash
+def withdrawal(cash):
+
     cash_out = int(input("Укажите сумму снятия, кратную 50\n"))
     if cash_out % 50 == 0 and cash_out < cash:
         cash -= cash_out
         if 30 < (cash_out * 0.015) < 600:
             cash = cash - (cash_out * 0.015)
+
         elif (cash_out * 0.015) < 30:
             cash = cash - 30
+
         else:
             cash = cash - 600
+
     else:
-        cashout()
+        withdrawal(cash)
+    return cash
 
 
-cash = 0
+wallet = 0
 count = 0
 
 while True:
@@ -44,14 +49,14 @@ while True:
     if x == 3:
         break
     elif x == 1:
-        cashup()
+        wallet = adding(wallet)
     elif x == 2:
-        cashout()
+        wallet = withdrawal(wallet)
 
     if count % 3 == 0:
-        cash = cash * 1.03
+        wallet = wallet * 1.03
 
-    if cash > 5_000_000:
-        cash = cash * 0.9
+    if wallet > 5_000_000:
+        wallet = wallet * 0.9
 
-    print(f'На счету {cash}')
+    print(f'На счету {wallet}')

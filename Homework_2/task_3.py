@@ -55,6 +55,14 @@ def list_to_frac(lst):
     return f'{lst[0]}/{lst[1]}'
 
 
+def print_frac(lst):
+    if lst[0] == lst[1]:
+        return str(lst[0])
+    if lst[0] == 0:
+        return 0
+    return str(f'{lst[0]}/{lst[1]}')
+
+
 fraction_1 = get_fraction_numbers(input("Enter fraction №1: "))
 fraction_2 = get_fraction_numbers(input("Enter fraction №2: "))
 
@@ -71,11 +79,11 @@ mul_fractions = rounding(multiplication(fraction_1[0], fraction_1[1], fraction_2
 
 print(f'{list_to_frac(fraction_1)} + \
 {list_to_frac(fraction_2)} = \
-{list_to_frac(add_fractions)}')
+{print_frac(add_fractions)}')
 
 print(f'{list_to_frac(fraction_1)} * \
 {list_to_frac(fraction_2)} = \
-{list_to_frac(mul_fractions)}')
+{print_frac(mul_fractions)}')
 
 
 
