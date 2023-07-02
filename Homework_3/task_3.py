@@ -51,17 +51,21 @@ informal string representation (see also the -b command-line option to Python). 
 and the String Methods section below. To output formatted strings, see the Formatted string literals and Format 
 String Syntax sections. In addition, see the Text Processing Services section. """
 
-words = str_default.replace('.', '').replace(',', '').replace('"', '').replace('(', ' ').replace(')', ' ')\
-    .replace("'", "").replace('“', '').replace('>', '').replace('-', '').replace('=', '').replace(':', '')\
-    .replace('!', '').replace('—', '').lower().split()
-length_words_dict = {}
+# words = str_default.replace('.', '').replace(',', '').replace('"', '').replace('(', ' ').replace(')', ' ')\
+#     .replace("'", "").replace('“', '').replace('>', '').replace('-', '').replace('=', '').replace(':', '')\
+#     .replace('!', '').replace('—', '').lower().split()
+words = [i for i in str_default.lower().split() if i.isalpha()]
+
 COUNT = 10
 ONE = 1
 
-for word in words:
-    if word not in length_words_dict:
-        length_words_dict[word] = words.count(word)
-length_words_dict = sorted(length_words_dict.items(), key=lambda x: x[ONE], reverse=True)
+# length_words_dict = {}
+# for word in words:
+#     if word not in length_words_dict:
+#         length_words_dict[word] = words.count(word)
+# length_words_dict = sorted(length_words_dict.items(), key=lambda x: x[ONE], reverse=True)
+length_words_dict = sorted({word: words.count(word) for word in set(words)}.items(), key=lambda x: x[1], reverse=True)
+
 for i in range(COUNT):
     print(length_words_dict[i])
 

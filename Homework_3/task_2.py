@@ -6,7 +6,7 @@ lst = [1, 1, 1, 2, 3, 4, 4, 5, 6, 7, 8, 8, "asd", "qwe", "asd"]
 ONE = 1
 duplicate_elements_lst = []
 print(f'\nThis list: \n{lst}')
-for item in lst:
+for item in set(lst):
     if lst.count(item) > ONE:
         duplicate_elements_lst.append(item)
 

@@ -55,10 +55,7 @@ missing_items = {}
 for friend, items in hike.items():
     for item in all_items:
         if item not in items:
-            if item not in missing_items:
-                missing_items[item] = [friend]
-            else:
-                missing_items[item].append(friend)
+            missing_items.setdefault(item, []).append(friend)
 
 missing_items = {item: friends_list for item, friends_list in missing_items.items() if len(friends_list) == ONE}
 print("\nMissing items:")
